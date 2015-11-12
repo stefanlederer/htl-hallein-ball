@@ -1,8 +1,8 @@
 # This is a template for the event HTL-Hallein Ball 2015
 you are free to use this template for other events but pls mention us there.
-We are Tobias Franek and Stefan Lederer
+The author are [Tobias Franek](https://github.com/TobiasFranek) and [Stefan Lederer](https://github.com/stefanlederer).
 
-this template is based on:
+This template is based on:
 
 
 

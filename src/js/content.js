@@ -4,12 +4,23 @@ App.content = function () {
 
 App.content.prototype = {
     init: function () {
-        $('.header-img').height($(window).height() - $('#nav').height());
+        $('#header').height($(window).height() - $('#nav').height());
+        $('#container').height($(window).height());
+        $('#content').css('top', $(window).height());
+        $('.confetti').height($('#content').height());
         this.bindEvents();
     },
     bindEvents: function () {
         $(window).resize(function () {
-            $('.header-img').height($(window).height() - $('#nav').height());
+            $('#header').height($(window).height() - $('#nav').height());
+            $('#container').height($(window).height());
+            $('#content').css('top', $(window).height());
+            $('.confetti').height($('#content').height());
+        });
+        $('.fly-down, .fa-angle-down').click(function () {
+            $('#container').animate({
+                scrollTop: $(window).height() - $('#nav').height()
+            }, 1000)
         });
     }
 };

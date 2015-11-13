@@ -13,6 +13,47 @@ body {
     top:0;
     z-index:500;
     overflow-y:scroll;
+    overflow-x:hidden;
+    button {
+	border: 3px solid #fff;
+	color: #fff;
+	background: none;
+	padding: 15px 60px;
+	position: absolute;
+	box-sizing: border-box;
+	bottom: 50px;
+	margin-top: 20px;
+	font-size: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	moz-transition: all 0.4s ease 0s;
+	-webkit-transition: all 0.4s ease 0s;
+	-ms-transition: all 0.4s ease 0s;
+	transition: all 0.4s ease 0s;
+	&:hover {
+	    border-color: @grey;
+	    color: @grey;
+	}
+	&:focus {
+	    outline:none;
+	}
+    }
+    .fa-angle-down {
+	color:#fff;
+	font-size:30px;
+	font-weight:300;
+	position: absolute;
+	bottom:10px;
+	left:50%;
+	transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	cursor:pointer;
+    }
 }
 
 h1 {

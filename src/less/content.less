@@ -1,0 +1,34 @@
+#content {
+    width:100%;
+    background:#fff;
+    position:absolute;
+    article {
+        width:60%;
+        margin-left:20%;
+	h2 {
+	    margin-top:0;
+	}
+        &.sponsoring {
+            img {
+                float:left;
+                width:200px;
+            }
+        }
+        &:first-child {
+            margin-top:40px;
+        }
+    }
+
+    .confetti{
+        width:15%;
+        position:absolute;
+        top:0;
+        background:url('../img/confetti.png');
+        &.confetti-left {
+            left:0;
+        }
+        &.confetti-right {
+            right:0;
+        }
+    }
+}

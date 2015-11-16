@@ -2,8 +2,22 @@
 you are free to use this template for other events but pls mention us there.
 The author are [Tobias Franek](https://github.com/TobiasFranek) and [Stefan Lederer](https://github.com/stefanlederer).
 
-This template is based on:
+## How to install this template
 
+1. get [NodeJS](https://nodejs.org/en/)
+2. then run
+   ```npm install -g gulp```
+3. after that fork the repository and clone it from your forked repo
+   ```git clone https://github.com/[Username]/htl-hallein-ball```
+4. if its finished use:
+    ```git checkout master``` for production and
+    ```git checkout develop``` fpr development
+5. now you switch to your directory and use:
+    ```npm install``` and then
+    ```gulp``` now a dist folder appeared
+6. execute the index.html file in the dist folder and have fun :D
+
+This template is based on:
 
 
 

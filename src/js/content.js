@@ -8,10 +8,11 @@ App.content.prototype = {
      */
     init: function () {
         $('#header').height($(window).height() - $('#nav').height());
-        $('#container').height($(window).height());
-        $('#content').css('top', $(window).height());
+        $('#container').height($(window).height() - 70);
+        if ($('#header').hasClass('big-header')) {
+            $('#content').css('top', $(window).height());
+        }
         $('.confetti').height($('#content').height());
-        $('.mobile-navbar').width($(window).width());
         if ($(window).width() < 1024) {
             $('#nav').height($(window).height());
         } else {
@@ -26,8 +27,7 @@ App.content.prototype = {
         var me = this;
         $(window).resize(function () {
             $('.big-header').height($(window).height() - $('#nav').height());
-            $('#container').height($(window).height());
-            $('.mobile-navbar').width($(window).width());
+            $('#container').height($(window).height() - 70);
             if ($('#header').hasClass('big-header')) {
                 $('#content').css('top', $(window).height());
             }
@@ -44,13 +44,12 @@ App.content.prototype = {
                 scrollTop: $(window).height() - 40
             }, 1000)
         });
+
         $('#container').scroll(function () {
             if ($('#container').scrollTop() === 0) {
-                $('.infos').removeClass('opacity0');
-                $('.infos').addClass('opacity1');
+                $('.infos').css('opacity', '1');
             } else {
-                $('.infos').removeClass('opacity1');
-                $('.infos').addClass('opacity0');
+                $('.infos').css('opacity', '0');
             }
         });
         $(document).on('click', '.mobile-navbar .fa-bars', function () {

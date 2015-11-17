@@ -2,9 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <main id="container">
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Startseite</a>
+                    <span class="background"></span>
+                </li>
+                <li><a href="anreise.html">Anreise</a>
+                    <span class="background"></span>
+                </li>
+                <li><a href="program.html">Programm</a>
+                    <span class="background"></span>
+                </li>
+                <li class="active"><a href="contact.html">Kontakt</a>
+                    <span class="background"></span>
+                </li>
+            </ul>
+        </nav>
+        <div id="content">
 
+            <div class="contact">
+                Hier klicken zum Kontakt
+            </div>
+
+            <div class="confetti confetti-left">
+
+            </div>
+            <div class="confetti confetti-right">
+
+            </div>
+        </div>
+    </main>
+    <header id="header-small">
+        <div class="header-small-content">
+            <h2>HTL-Hallein Ball</h2>
+            <h3>Hier steht das Motto</h3>
+        </div>
+    </header>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/{{JQUERY_VERSION}}/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+    <script src="js/globals.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/content.js"></script>
+    <script src="js/plugins.js"></script>
 </body>
 </html>

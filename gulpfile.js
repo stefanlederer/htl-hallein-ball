@@ -81,7 +81,7 @@ gulp.task('copy:.htaccess', function () {
 });
 
 gulp.task('copy:index.html', function () {
-    return gulp.src(dirs.src + '/index.html')
+    return gulp.src(dirs.src + '/*.html')
                .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
                .pipe(gulp.dest(dirs.dist));
 });
@@ -120,7 +120,7 @@ gulp.task('copy:misc', function () {
         // (other tasks will handle the copying of these files)
         '!' + dirs.src + '/less/main.less',
         '!' + dirs.src + '/less',
-        '!' + dirs.src + '/index.html'
+        '!' + dirs.src + '/*.html'
 
     ], {
 

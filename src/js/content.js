@@ -7,10 +7,10 @@ App.content.prototype = {
      * Initializes the Object
      */
     init: function () {
-        $('#header').height($(window).height() - $('#nav').height());
         $('#container').height($(window).height() - 70);
         if ($('#header').hasClass('big-header')) {
             $('#content').css('top', $(window).height());
+            $('#header').height($(window).height() - $('#nav').height());
         }
         $('.confetti').height($('#content').height());
         if ($(window).width() < 1024) {

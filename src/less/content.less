@@ -1,70 +1,88 @@
 #content {
-    width:100%;
-    background:#fff;
-    position:absolute;
-    padding-bottom:50px;
-    article {
-        width:60%;
-        margin-left:20%;
-	h2 {
-	    margin-top:0;
-            text-align:center;
-            border-bottom:1px solid @grey;
-            font-weight:100;
-            @media @mobile {
-                font-size:34px;
-            }
-	}
-        &.sponsoring {
-            img {
-                float:left;
-                width:140px;
-            }
-        }
-        &:first-child {
-            margin-top: 40px;
-        }
+  width: 100%;
+  background: #fff;
+  position: absolute;
+  padding-bottom:50px;
+  top:210px;
+  left: 0;
+  margin-left: 0;
+  article {
+    width: 60%;
+    margin-left: 20%;
+    h2 {
+      margin-top: 0;
+      text-align: center;
+      border-bottom: 1px solid @grey;
+      font-weight: 100;
+      @media @mobile {
+        font-size: 34px;
+      }
     }
+    &.sponsoring {
+      img {
+        float: left;
+        width: 140px;
+      }
+    }
+    &:first-child {
+      margin-top: 40px;
+    }
+  }
 
-    .confetti{
-        width:15%;
-        position:absolute;
-        top:0;
-        background:url('../img/confetti.png');
-        &.confetti-left {
-            left:0;
-        }
-        &.confetti-right {
-            right:0;
-        }
+  .confetti {
+    width: 15%;
+    position: absolute;
+    top: 0;
+    background: url('../img/confetti.png');
+    &.confetti-left {
+      left: 0;
     }
-    .program {
-        margin-top: 300px;
-        position:fixed;
-        z-index: 500;
-        width: 60%;
-        margin-left: 20%;
-
-        .time {
-            width: 180px;
-            .program-content {
-                text-align: center;
-                font-family: normal;
-                font-weight: 300;
-                font-size: 20px;
-            }
-        }
-
+    &.confetti-right {
+      right: 0;
     }
-    tr {
-        height: 100px;
-    }
-    .contact {
+  }
+  .program {
+    //z-index: 500;
+    width: 60%;
+    margin-left: 20%;
+    .time {
+      width: 180px;
+      .program-content {
         text-align: center;
-        margin-top: 300px;
-        position:fixed;
-        z-index: 500;
-        width: 60%;
-        margin-left: 20%;
+        font-family: "Lato",sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+      }
     }
+
+  }
+  tr {
+    height: 100px;
+  }
+  .contact {
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    font-family: "Lato",sans-serif;
+
+    h3 {
+      border-bottom: 1px solid @grey;
+    }
+  }
+  .google-maps {
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    table {
+      width: 100%;
+    }
+    td {
+      text-align: center;
+      width: 33%
+    }
+    .table-icons {
+
+    }
+  }
+
 }

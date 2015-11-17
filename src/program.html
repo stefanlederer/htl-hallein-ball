@@ -6,46 +6,88 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<nav id="nav">
+    <ul>
+        <li><a href="index.html">Startseite</a>
+            <span class="background"></span>
+        </li>
+        <li><a href="anreise.html">Anreise</a>
+            <span class="background"></span>
+        </li>
+        <li class="active"><a href="program.html">Programm</a>
+            <span class="background"></span>
+        </li>
+        <li><a href="contact.html">Kontakt</a>
+            <span class="background"></span>
+        </li>
+    </ul>
+</nav>
 <main id="container">
-    <nav id="nav">
-        <ul>
-            <li><a href="index.html">Startseite</a>
-                <span class="background"></span>
-            </li>
-            <li><a href="anreise.html">Anreise</a>
-                <span class="background"></span>
-            </li>
-            <li class="active"><a href="program.html">Programm</a>
-                <span class="background"></span>
-            </li>
-            <li><a href="contact.html">Kontakt</a>
-                <span class="background"></span>
-            </li>
-        </ul>
-    </nav>
+    <div class="mobile-navbar closed">
+        <i class="fa fa-bars"></i>
+        <i class="fa fa-times"></i>
+    </div>
     <div id="content">
         <table class="program">
             <tr>
                 <td>
                     <div class="time">
-                        <a class="program-content">19:00 - 20:00</a>
+                        <p class="program-content">16:00 - 29:00</p>
                     </div>
                 </td>
                 <td>
                     <div class="subject">
-                        <a class="programm-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</a>
+                        <p class="programm-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                            nonumy eirmod tempor </p>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <div class="time">
-                        <a class="program-content">20:00 - 22:00</a>
+                        <p class="program-content">19:00 - 20:00</p>
                     </div>
                 </td>
                 <td>
                     <div class="subject">
-                        <a class="programm-content">Lorem ipsum dolor</a>
+                        <p class="programm-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="time">
+                        <p class="program-content">20:00 - 22:00</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="subject">
+                        <p class="programm-content">Lorem ipsum dolor</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="time">
+                        <p class="program-content">22:00 - 0:00</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="subject">
+                        <p class="programm-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="time">
+                        <p class="program-content">0:00 - 2:00</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="subject">
+                        <p class="programm-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>
                     </div>
                 </td>
             </tr>
@@ -58,11 +100,18 @@
         </div>
     </div>
 </main>
-<header id="header-small">
+<header id="header">
     <div class="header-small-content">
         <h2>HTL-Hallein Ball</h2>
+
         <h3>Hier steht das Motto</h3>
     </div>
 </header>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/{{JQUERY_VERSION}}/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+<script src="js/globals.js"></script>
+<script src="js/main.js"></script>
+<script src="js/content.js"></script>
+<script src="js/plugins.js"></script>
 </body>
 </html>

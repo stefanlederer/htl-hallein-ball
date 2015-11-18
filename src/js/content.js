@@ -7,10 +7,10 @@ App.content.prototype = {
      * Initializes the Object
      */
     init: function () {
-        $('#header').height($(window).height() - $('#nav').height());
+        $('.big-header').height($(window).height() - $('#nav').height() - 30);
         $('#container').height($(window).height() - 70);
         if ($('#header').hasClass('big-header')) {
-            $('#content').css('top', $(window).height());
+            $('#content').css('top', ($(window).height() - 60) + 'px');
         }
         $('.confetti').height($('#content').height());
         if ($(window).width() < 1024) {
@@ -26,10 +26,10 @@ App.content.prototype = {
     bindEvents: function () {
         var me = this;
         $(window).resize(function () {
-            $('.big-header').height($(window).height() - $('#nav').height());
+            $('.big-header').height($(window).height() - $('#nav').height() - 30);
             $('#container').height($(window).height() - 70);
             if ($('#header').hasClass('big-header')) {
-                $('#content').css('top', $(window).height());
+                $('#content').css('top', ($(window).height() - 60) + 'px');
             }
             $('.confetti').height($('#content').height() + 50);
             if ($(window).width() < 1024) {

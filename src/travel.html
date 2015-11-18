@@ -1,9 +1,9 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Startseite</title>
+    <title>Anreise</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,16 +18,12 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-<!--[if lt IE 8]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
-<![endif]-->
 <nav id="nav">
     <ul>
-        <li class="active"><a href="index.html">Startseite</a>
+        <li><a href="index.html">Startseite</a>
             <span class="background"></span>
         </li>
-        <li><a href="travel.html">Anreise</a>
+        <li class="active"><a href="travel.html">Anreise</a>
             <span class="background"></span>
         </li>
         <li><a href="program.html">Programm</a>
@@ -44,15 +40,26 @@
         <i class="fa fa-times"></i>
     </div>
     <div id="content">
-        <article>
-            <h2>Informationen</h2>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-        </article>
-        <article class="sponsoring">
-            <h2>Sponsoren</h2>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <img src="img/logo.jpg" alt="logo"/>
-        </article>
+        <div class="google-maps">
+            <table>
+                <td class="table-icons">
+                    <i class="fa fa-bus"></i>
+
+                    <p>Bus</p>
+                </td>
+                <td class="table-icons">
+                    <i class="fa fa-bicycle"></i>
+
+                    <p>Fahrrad</p>
+                </td>
+                <td class="table-icons">
+                    <i class="fa fa-male"></i>
+
+                    <p>Zu Fuß</p>
+                </td>
+            </table>
+        </div>
+
         <div class="confetti confetti-left">
 
         </div>
@@ -60,15 +67,11 @@
 
         </div>
     </div>
-    <div class="infos">
-        <button class="fly-down">Infos</button>
-        <i class="fa fa-angle-down"></i>
-    </div>
 </main>
-<header id="header" class="big-header">
-    <div class="header-content">
-        <h1>HTL-Hallein Ball</h1>
-        <h2>Motto Motto Mottooo</h2>
+<header id="header" class="small-header">
+    <div class="header-small-content">
+        <h2>HTL-Hallein Ball</h2>
+        <h3>Hier steht das Motto</h3>
     </div>
 </header>
 <footer id="footer">
@@ -82,5 +85,6 @@
 <script src="js/main.js"></script>
 <script src="js/content.js"></script>
 <script src="js/plugins.js"></script>
+<script src="js/getLocation.js"></script>
 </body>
 </html>

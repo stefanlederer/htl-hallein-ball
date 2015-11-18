@@ -9,9 +9,9 @@ The author are [Tobias Franek](https://github.com/TobiasFranek) and [Stefan Lede
    ```npm install -g gulp```
 3. after that fork the repository and clone it from your forked repo
    ```git clone https://github.com/[Username]/htl-hallein-ball```
-4. if its finished use:
+4. if its finished go to your directory and use:
     ```git checkout master``` for production and
-    ```git checkout develop``` fpr development
+    ```git checkout develop``` for development
 5. now you switch to your directory and use:
     ```npm install``` and then
     ```gulp``` now a dist folder appeared

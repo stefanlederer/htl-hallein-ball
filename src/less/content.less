@@ -72,9 +72,41 @@
     text-align: center;
     width: 60%;
     margin-left: 20%;
-    table {
+    .icon-wrapper {
       width: 100%;
+
+      .icons {
+        &.active {
+          background: @orange;
+          color: #fff;
+          &:hover {
+            i,p {
+              color: #fff !important;
+            }
+          }
+        }
+        &:hover {
+          i,p {
+            color: @orange;
+          }
+        }
+        float:left;
+        width: 33.33333%;
+        height:100px;
+        border: 1px solid @grey;
+        border-top: none;
+        box-sizing: border-box;
+        cursor: pointer;
+        padding-top: 16px;
+        i,p {
+          moz-transition: all 0.2s ease 0s;
+          -webkit-transition: all 0.2s ease 0s;
+          -ms-transition: all 0.2s ease 0s;
+          transition: all 0.2s ease 0s;
+        }
+      }
     }
+    
     td {
       text-align: center;
       width: 33%

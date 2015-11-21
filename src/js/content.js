@@ -7,12 +7,15 @@ App.content.prototype = {
      * Initializes the Object
      */
     init: function () {
+        $('.big-header').height($(window).height() - $('#nav').height() - 30);
         $('#container').height($(window).height() - 70);
-        if ($('#header').hasClass('big-header')) {
-            $('#content').css('top', $(window).height());
-            $('#header').height($(window).height() - $('#nav').height());
+        $('.confetti').height($('#content').height() + 50);
+        if($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
+            $('.confetti').height(($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height())));
         }
-        $('.confetti').height($('#content').height());
+        if ($('#header').hasClass('big-header')) {
+            $('#content').css('top', ($(window).height() - 60) + 'px');
+        }
         if ($(window).width() < 1024) {
             $('#nav').height($(window).height());
         } else {
@@ -26,12 +29,15 @@ App.content.prototype = {
     bindEvents: function () {
         var me = this;
         $(window).resize(function () {
-            $('.big-header').height($(window).height() - $('#nav').height());
+            $('.big-header').height($(window).height() - $('#nav').height() - 30);
             $('#container').height($(window).height() - 70);
-            if ($('#header').hasClass('big-header')) {
-                $('#content').css('top', $(window).height());
-            }
             $('.confetti').height($('#content').height() + 50);
+            if($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
+                $('.confetti').height(($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height())));
+            }
+            if ($('#header').hasClass('big-header')) {
+                $('#content').css('top', ($(window).height() - 60) + 'px');
+            }
             if ($(window).width() < 1024) {
                 $('#nav').height($(window).height());
             } else {
@@ -65,10 +71,14 @@ App.content.prototype = {
             me.open($(this).children('.fa-bars'));
         });
         $(document).swipeleft(function () {
-            me.open($('.mobile-navbar .fa-bars'))
+            if($(window).width() < 1024) {
+                me.open($('.mobile-navbar .fa-bars'))
+            }
         });
         $(document).swiperight(function () {
-            me.close($('.mobile-navbar .fa-times'))
+            if($(window).width() < 1024)  {
+                me.close($('.mobile-navbar .fa-times'))
+            }
         });
     },
     /**

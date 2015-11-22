@@ -106,41 +106,124 @@ function calcRoute(tm) {
 }
 
 function showPosition(meposition) {
-    $(".maps").gmap3({
-        getgeoloc: {
-            callback: function (latLng) {
-                if (latLng) {
-                    $(this).gmap3({
-                        getroute:{
-                            options:{
-                                origin:latLng,
-                                destination:[47.6801466, 13.0926543],
-                                travelMode: google.maps.DirectionsTravelMode.DRIVING
+    if (travelmode="DRIVING") {
+        $(".maps").gmap3({
+            getgeoloc: {
+                callback: function (latLng) {
+                    if (latLng) {
+                        $(this).gmap3({
+                            getroute: {
+                                options: {
+                                    origin: latLng,
+                                    destination: [47.6801466, 13.0926543],
+                                    travelMode: google.maps.DirectionsTravelMode.DRIVING
+                                },
+                                callback: function (results) {
+                                    if (!results) return;
+                                    $(this).gmap3({
+                                        map: {
+                                            options: {
+                                                zoom: 13
+                                            }
+                                        },
+                                        directionsrenderer: {
+                                            options: {
+                                                directions: results
+                                            }
+                                        }
+                                    });
+                                }
                             },
-                            callback: function(results){
-                                if (!results) return;
+                            map: {
+                                options: {
+                                    zoom: 5
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+    }
+    else{
+        if(travelmode ="BICYCLE") {
+            $(".maps").gmap3({
+                getgeoloc: {
+                    callback: function (latLng) {
+                        if (latLng) {
+                            $(this).gmap3({
+                                getroute: {
+                                    options: {
+                                        origin: latLng,
+                                        destination: [47.6801466, 13.0926543],
+                                        travelMode: google.maps.DirectionsTravelMode.BICYCLE
+                                    },
+                                    callback: function (results) {
+                                        if (!results) return;
+                                        $(this).gmap3({
+                                            map: {
+                                                options: {
+                                                    zoom: 13
+                                                }
+                                            },
+                                            directionsrenderer: {
+                                                options: {
+                                                    directions: results
+                                                }
+                                            }
+                                        });
+                                    }
+                                },
+                                map: {
+                                    options: {
+                                        zoom: 5
+                                    }
+                                }
+                            });
+                        }
+                    }
+                }
+            });
+        }else {
+            if(travelmode = "WALKING") {
+                $(".maps").gmap3({
+                    getgeoloc: {
+                        callback: function (latLng) {
+                            if (latLng) {
                                 $(this).gmap3({
-                                    map:{
-                                        options:{
-                                            zoom: 13
+                                    getroute: {
+                                        options: {
+                                            origin: latLng,
+                                            destination: [47.6801466, 13.0926543],
+                                            travelMode: google.maps.DirectionsTravelMode.WALKING
+                                        },
+                                        callback: function (results) {
+                                            if (!results) return;
+                                            $(this).gmap3({
+                                                map: {
+                                                    options: {
+                                                        zoom: 13
+                                                    }
+                                                },
+                                                directionsrenderer: {
+                                                    options: {
+                                                        directions: results
+                                                    }
+                                                }
+                                            });
                                         }
                                     },
-                                    directionsrenderer:{
-                                        options:{
-                                            directions:results
+                                    map: {
+                                        options: {
+                                            zoom: 5
                                         }
                                     }
                                 });
                             }
-                        },
-                        map: {
-                            options: {
-                                zoom: 5
-                            }
                         }
-                    });
-                }
+                    }
+                });
             }
         }
-    });
+    }
 }

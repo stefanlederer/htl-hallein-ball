@@ -91,31 +91,56 @@ $(".maps").gmap3({
         latLng: [47.6801466, 13.0926543]
     }
 });
-//function calcRoute(travelmode) {
-//    $('.maps').gmap3('destroy').remove();
-//    if (navigator.geolocation) {
-//        navigator.geolocation.getCurrentPosition(showPosition);
-//
-//    } else {
-//        alert("Geolocation is not supported by this browser.");
-//
-//    }
-//
-//}
-//
-//function showPosition(meposition) {
-//    $(".maps").gmap3({
-//        map: {
-//            options: {
-//                zoom: 14,
-//                center: [meposition.coords.latitude, meposition.coords.longitude]
-//            }
-//        },
-//        marker: {
-//            latLng: [47.6801466, 13.0926543]
-//        },
-//        marker: {
-//            latLng: [meposition.coords.latitude, meposition.coords.longitude]
-//        }
-//    });
-//}
+
+var travelmode;
+function calcRoute(tm) {
+    travelmode = tm;
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+    } else {
+        alert("Geolocation is not supported by this browser.");
+
+    }
+
+}
+
+function showPosition(meposition) {
+    $(".maps").gmap3({
+        getgeoloc: {
+            callback: function (latLng) {
+                if (latLng) {
+                    $(this).gmap3({
+                        getroute:{
+                            options:{
+                                origin:latLng,
+                                destination:[47.6801466, 13.0926543],
+                                travelMode: google.maps.DirectionsTravelMode.DRIVING
+                            },
+                            callback: function(results){
+                                if (!results) return;
+                                $(this).gmap3({
+                                    map:{
+                                        options:{
+                                            zoom: 13
+                                        }
+                                    },
+                                    directionsrenderer:{
+                                        options:{
+                                            directions:results
+                                        }
+                                    }
+                                });
+                            }
+                        },
+                        map: {
+                            options: {
+                                zoom: 5
+                            }
+                        }
+                    });
+                }
+            }
+        }
+    });
+}

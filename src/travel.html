@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
+<body class="travel">
 <nav id="nav">
     <ul>
         <li><a href="index.html">Startseite</a>
@@ -42,17 +42,12 @@
     <div id="content">
         <div class="google-maps">
             <div class="icon-wrapper">
-                <div class="icons" onclick="calcRoute('DRIVING')">
+                <div class="icons active driving">
                     <i class="fa fa-car"></i>
 
                     <p>Auto</p>
                 </div>
-                <div class="icons" onclick="calcRoute('BICYCLE')">
-                    <i class="fa fa-bicycle"></i>
-
-                    <p>Fahrrad</p>
-                </div>
-                <div class="icons" onclick="calcRoute('WALKING')">
+                <div class="icons walking">
                     <i class="fa fa-male"></i>
 
                     <p>Zu Fuß</p>
@@ -61,6 +56,22 @@
             <div class="maps">
 
             </div>
+            <div class="map-loader">
+                <div class="sk-folding-cube">
+                    <div class="sk-cube1 sk-cube"></div>
+                    <div class="sk-cube2 sk-cube"></div>
+                    <div class="sk-cube4 sk-cube"></div>
+                    <div class="sk-cube3 sk-cube"></div>
+                </div>
+            </div>
+            <div class="advanced-route">
+                <i class="fa fa-map-o"></i>
+
+                <p>Route Berechnen</p>
+            </div>
+            <ul class="instructions">
+
+            </ul>
         </div>
         <div class="confetti confetti-left">
 
@@ -83,15 +94,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/{{JQUERY_VERSION}}/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
 <script src="js/vendor/jquery.mobile.min.js"></script>
+<script src="js/googlemapsAPI.js"></script>
+<script src="js/gmaps.js"></script>
 <script src="js/globals.js"></script>
 <script src="js/main.js"></script>
 <script src="js/content.js"></script>
+<script src="js/map.js"></script>
 <script src="js/plugins.js"></script>
 
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
-<script src="js/map3.js"></script>
-<script type="text/javascript" src="js/googlemapsapi.js"></script>
 </body>
 </html>

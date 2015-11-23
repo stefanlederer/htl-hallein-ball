@@ -16,7 +16,7 @@ App.content.prototype = {
         if ($('#header').hasClass('big-header')) {
             $('#content').css('top', ($(window).height() - 60) + 'px');
         }
-        if ($(window).width() < 1024) {
+        if ($(window).width() <= 1024) {
             $('#nav').height($(window).height());
         } else {
             $('#nav').height(40);
@@ -38,7 +38,7 @@ App.content.prototype = {
             if ($('#header').hasClass('big-header')) {
                 $('#content').css('top', ($(window).height() - 60) + 'px');
             }
-            if ($(window).width() < 1024) {
+            if ($(window).width() <= 1024) {
                 $('#nav').height($(window).height());
             } else {
                 $('#nav').height(40);

@@ -25,6 +25,7 @@ App.map = function (options) {
     }
     this.travelMode = this.options.defaultTravelMode;
     this.map;
+    this.addedMark = false;
     this.init();
 }
 
@@ -135,11 +136,14 @@ App.map.prototype = {
     setMarker: function () {
         var me = this;
         //for user position
-        this.map.addMarker({
-            lat: me.position.latitude,
-            lng: me.position.longitude,
-            title: 'Hier bist du'
-        })
+        if(this.addedMark === false) {
+            this.map.addMarker({
+                lat: me.position.latitude,
+                lng: me.position.longitude,
+                title: 'Hier bist du'
+            })
+            this.addedMark = true;
+        }
         //for target position
         this.map.addMarker({
             lat: me.target.latitude,

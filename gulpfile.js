@@ -8,6 +8,9 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var less = require('gulp-less');
 
+var LessPluginCleanCSS = require('less-plugin-clean-css'),
+    cleancss = new LessPluginCleanCSS({ advanced: true });
+
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
 var runSequence = require('run-sequence');
@@ -105,7 +108,8 @@ gulp.task('less', function () {
     return gulp.src(dirs.src + '/less/main.less')
         .pipe(plugins.header(banner))
         .pipe(less({
-            paths: [path.join(__dirname, 'less', 'includes')]
+            paths: [path.join(__dirname, 'less', 'includes')],
+            plugins: [cleancss]
         }))
         .pipe(gulp.dest(dirs.dist + '/css'));
 });
@@ -118,7 +122,7 @@ gulp.task('copy:misc', function () {
 
         // Exclude the following files
         // (other tasks will handle the copying of these files)
-        '!' + dirs.src + '/less/main.less',
+        '!' + dirs.src + '/less/*.less',
         '!' + dirs.src + '/less',
         '!' + dirs.src + '/*.html'
 

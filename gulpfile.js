@@ -156,16 +156,17 @@ gulp.task('lint:js', function () {
         .pipe(plugins.jshint.reporter('fail'));
 });
 gulp.task('scripts', function () {
-    gulp.src(['./src/js/vendor/jquery.mobile.min.js',
-        './src/js/globals.js',
-        './src/js/gmaps.js',
-        './src/js/main.js',
-        './src/js/map.js',
-        './src/js/content.js',
-        './src/js/plugins.js'])
+    gulp.src([dirs.src + '/js/vendor/jquery.mobile.min.js',
+            dirs.src + '/js/vendor/masonry.min.js',
+            dirs.src + '/js/globals.js',
+            dirs.src + '/js/gmaps.js',
+            dirs.src + '/js/main.js',
+            dirs.src + '/js/map.js',
+            dirs.src + '/js/content.js',
+            dirs.src + '/js/plugins.js'])
         .pipe(concat('script.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('./dist/js'))
+        .pipe(gulp.dest(dirs.dist + '/js'))
 });
 
 // ---------------------------------------------------------------------

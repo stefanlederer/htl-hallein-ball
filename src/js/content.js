@@ -7,14 +7,16 @@ App.content.prototype = {
      * Initializes the Object
      */
     init: function () {
-        if($(window).width() > 1024){
+        if ($(window).width() > 1024) {
             $('.big-header').height($(window).height() - $('#nav').height() - 30);
-        }else {
+        } else {
             $('.big-header').height($(window).height() - $('.mobile-navbar').height() - 30);
         }
         $('#container').height($(window).height() - 70);
-        $('.confetti').height($('#content').height() + 50);
-        if($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
+        window.setTimeout(function () {
+            $('.confetti').height($('#content').height() + 50);
+        }, 200);
+        if ($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
             $('.confetti').height(($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height())));
         }
         if ($('#header').hasClass('big-header')) {
@@ -32,15 +34,31 @@ App.content.prototype = {
      */
     bindEvents: function () {
         var me = this;
+        var ifMobile;
+        if ($(window).width() > 1024) {
+            ifMobile = false;
+        } else {
+            ifMobile = true;
+        }
         $(window).resize(function () {
-            if($(window).width() > 1024){
-                $('.big-header').height($(window).height() - $('#nav').height() - 30);
-            }else {
+            if ($(window).width() > 1024) {
+                if (ifMobile) {
+                    window.setTimeout(function () {
+                        $('.big-header').height($(window).height() - $('#nav').height() - 30);
+                    }, 600);
+                    ifMobile = false;
+                } else {
+                    $('.big-header').height($(window).height() - $('#nav').height() - 30);
+                }
+            } else {
                 $('.big-header').height($(window).height() - $('.mobile-navbar').height() - 30);
+                ifMobile = true;
             }
             $('#container').height($(window).height() - 70);
-            $('.confetti').height($('#content').height() + 50);
-            if($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
+            window.setTimeout(function () {
+                $('.confetti').height($('#content').height() + 50);
+            }, 200);
+            if ($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
                 $('.confetti').height(($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height())));
             }
             if ($('#header').hasClass('big-header')) {
@@ -78,12 +96,12 @@ App.content.prototype = {
             me.open($(this).children('.fa-bars'));
         });
         $(document).swipeleft(function () {
-            if($(window).width() < 1024) {
+            if ($(window).width() < 1024) {
                 me.open($('.mobile-navbar .fa-bars'))
             }
         });
         $(document).swiperight(function () {
-            if($(window).width() < 1024)  {
+            if ($(window).width() < 1024) {
                 me.close($('.mobile-navbar .fa-times'))
             }
         });

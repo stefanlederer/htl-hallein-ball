@@ -15,6 +15,9 @@ App.content.prototype = {
         $('#container').height($(window).height() - 70);
         window.setTimeout(function () {
             $('.confetti').height($('#content').height() + 50);
+            if ($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
+                $('.confetti').height(($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height())));
+            }
         }, 200);
         if ($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
             $('.confetti').height(($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height())));
@@ -57,6 +60,9 @@ App.content.prototype = {
             $('#container').height($(window).height() - 70);
             window.setTimeout(function () {
                 $('.confetti').height($('#content').height() + 50);
+                if ($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
+                    $('.confetti').height(($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height())));
+                }
             }, 200);
             if ($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
                 $('.confetti').height(($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height())));

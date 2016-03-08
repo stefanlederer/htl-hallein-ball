@@ -7,7 +7,11 @@ App.content.prototype = {
      * Initializes the Object
      */
     init: function () {
-        $('.big-header').height($(window).height() - $('#nav').height() - 30);
+        if($(window).width() > 1024){
+            $('.big-header').height($(window).height() - $('#nav').height() - 30);
+        }else {
+            $('.big-header').height($(window).height() - $('.mobile-navbar').height() - 30);
+        }
         $('#container').height($(window).height() - 70);
         $('.confetti').height($('#content').height() + 50);
         if($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
@@ -29,7 +33,11 @@ App.content.prototype = {
     bindEvents: function () {
         var me = this;
         $(window).resize(function () {
-            $('.big-header').height($(window).height() - $('#nav').height() - 30);
+            if($(window).width() > 1024){
+                $('.big-header').height($(window).height() - $('#nav').height() - 30);
+            }else {
+                $('.big-header').height($(window).height() - $('.mobile-navbar').height() - 30);
+            }
             $('#container').height($(window).height() - 70);
             $('.confetti').height($('#content').height() + 50);
             if($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
@@ -45,7 +53,6 @@ App.content.prototype = {
             }
         });
         $('.fly-down, .fa-angle-down').click(function () {
-            console.log('test');
             $('#container').animate({
                 scrollTop: $(window).height() - 40
             }, 1000)

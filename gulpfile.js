@@ -9,7 +9,7 @@ var plugins = require('gulp-load-plugins')();
 var less = require('gulp-less');
 
 var LessPluginCleanCSS = require('less-plugin-clean-css'),
-    cleancss = new LessPluginCleanCSS({ advanced: true });
+    cleancss = new LessPluginCleanCSS({advanced: true});
 
 // Temporary solution until gulp 4
 // https://github.com/gulpjs/gulp/issues/355
@@ -17,6 +17,10 @@ var runSequence = require('run-sequence');
 
 var pkg = require('./package.json');
 var dirs = pkg['htl-configs'].directories;
+
+var concat = require('gulp-concat');
+
+var uglify = require('gulp-uglify');
 
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |
@@ -79,31 +83,31 @@ gulp.task('copy', [
 
 gulp.task('copy:.htaccess', function () {
     return gulp.src('node_modules/apache-server-configs/dist/.htaccess')
-               .pipe(plugins.replace(/# ErrorDocument/g, 'ErrorDocument'))
-               .pipe(gulp.dest(dirs.dist));
+        .pipe(plugins.replace(/# ErrorDocument/g, 'ErrorDocument'))
+        .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:index.html', function () {
     return gulp.src(dirs.src + '/*.html')
-               .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
-               .pipe(gulp.dest(dirs.dist));
+        .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
+        .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('copy:jquery', function () {
     return gulp.src(['node_modules/jquery/dist/jquery.min.js'])
-               .pipe(plugins.rename('jquery-' + pkg.devDependencies.jquery + '.min.js'))
-               .pipe(gulp.dest(dirs.dist + '/js/vendor'));
+        .pipe(plugins.rename('jquery-' + pkg.devDependencies.jquery + '.min.js'))
+        .pipe(gulp.dest(dirs.dist + '/js/vendor'));
 });
 
 gulp.task('copy:license', function () {
     return gulp.src('LICENSE.txt')
-               .pipe(gulp.dest(dirs.dist));
+        .pipe(gulp.dest(dirs.dist));
 });
 
 gulp.task('less', function () {
 
     var banner = '/*! HTL-Ball-Template ' + pkg.version +
-                    ' | ' + pkg.homepage + ' */\n\n';
+        ' | ' + pkg.homepage + ' */\n\n';
 
     return gulp.src(dirs.src + '/less/main.less')
         .pipe(plugins.header(banner))
@@ -124,7 +128,9 @@ gulp.task('copy:misc', function () {
         // (other tasks will handle the copying of these files)
         '!' + dirs.src + '/less/*.less',
         '!' + dirs.src + '/less',
-        '!' + dirs.src + '/*.html'
+        '!' + dirs.src + '/*.html',
+        '!' + dirs.src + '/js/*.js',
+        '!' + dirs.src + '/js/vendor/jquery.mobile.min.js'
 
     ], {
 
@@ -136,7 +142,7 @@ gulp.task('copy:misc', function () {
 
 gulp.task('copy:normalize', function () {
     return gulp.src('node_modules/normalize.css/normalize.css')
-               .pipe(gulp.dest(dirs.dist + '/css'));
+        .pipe(gulp.dest(dirs.dist + '/css'));
 });
 
 gulp.task('lint:js', function () {
@@ -145,11 +151,22 @@ gulp.task('lint:js', function () {
         dirs.src + '/js/*.js',
         dirs.test + '/*.js'
     ]).pipe(plugins.jscs())
-      .pipe(plugins.jshint())
-      .pipe(plugins.jshint.reporter('jshint-stylish'))
-      .pipe(plugins.jshint.reporter('fail'));
+        .pipe(plugins.jshint())
+        .pipe(plugins.jshint.reporter('jshint-stylish'))
+        .pipe(plugins.jshint.reporter('fail'));
 });
-
+gulp.task('scripts', function () {
+    gulp.src(['./src/js/vendor/jquery.mobile.min.js',
+        './src/js/globals.js',
+        './src/js/gmaps.js',
+        './src/js/main.js',
+        './src/js/map.js',
+        './src/js/content.js',
+        './src/js/plugins.js'])
+        .pipe(concat('script.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist/js'))
+});
 
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
@@ -160,14 +177,14 @@ gulp.task('archive', function (done) {
         'build',
         'archive:create_archive_dir',
         'archive:zip',
-    done);
+        done);
 });
 
 gulp.task('build', function (done) {
     runSequence(
         ['clean'],
-        'copy', 'less',
-    done);
+        'copy', 'less', 'scripts',
+        done);
 });
 
 

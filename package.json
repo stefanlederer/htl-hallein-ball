@@ -18,7 +18,10 @@
     "normalize.css": "3.0.3",
     "run-sequence": "^1.0.2",
     "gulp-less": "~3.0.3",
-    "gulp-watch": "~4.3.5"
+    "gulp-watch": "~4.3.5",
+    "less-plugin-clean-css": "~1.5.1",
+    "gulp-uglify": "~1.5.3",
+    "gulp-concat": "~2.6.0"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -63,6 +66,8 @@
     "run-sequence": "^1.0.2",
     "gulp-less": "~3.0.3",
     "gulp-watch": "~4.3.5",
-    "less-plugin-clean-css": "~1.5.1"
+    "less-plugin-clean-css": "~1.5.1",
+    "gulp-uglify": "~1.5.3",
+    "gulp-concat": "~2.6.0"
   }
 }

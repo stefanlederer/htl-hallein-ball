@@ -1,57 +1,71 @@
 #header {
-  display: block;
-  width: 100%;
-  position: absolute;
-  z-index: 400;
-  left:0;
-  top:40px;
-  background: url('@{images}/wallpaper-2446558.jpeg');
-  background-size: cover;
-  background-position: center;
-  .header-content {
-    text-align: center;
-    h1 {
-      color: #fff;
-      margin-bottom: 15px;
-      @media @mobile {
-        margin-top: 30px;
-        font-size: 40px;
-        font-weight: 300;
-      }
+    display: block;
+    width: 100%;
+    position: absolute;
+    z-index: 400;
+    left: 0;
+    top: 40px;
+    background: url('@{images}/back-to-reality-header-big.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .header-content {
+	text-align: center;
+	h1 {
+	    color: #fff;
+	    margin-bottom: 15px;
+	    @media @mobile {
+		margin-top: 30px;
+		font-size: 40px;
+		font-weight: 300;
+	    }
+	}
+	h2 {
+	    margin-top: 15px;
+	    color: #fff;
+	    @media @mobile {
+		margin-top: 0;
+		font-size: 28px;
+	    }
+	}
+	figure {
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    margin: 0;
+	    img {
+		width: auto;
+		@media @mobile {
+		    width: 100%;
+		}
+	    }
+	    @media @mobile {
+		width: 85%;
+	    }
+	}
     }
-    h2 {
-      margin-top: 15px;
-      color: #fff;
-      @media @mobile {
-        margin-top: 0;
-        font-size: 28px;
-      }
+    &.small-header {
+	height: 200px;
+	.header-small-content {
+	    top: 40px;
+	    text-align: center;
+	    margin-top: 40px;
+	    left: 0;
+	    h2 {
+		margin-top: 15px;
+		color: #fff;
+	    }
+	    h3 {
+		margin-top: 20px;
+		font-size: 28px;
+		font-style: normal;
+		font-weight: 300;
+		color: #fff;
+	    }
+	    img {
+		width: 300px;
+	    }
+	}
     }
-    img {
-      width: 300px;
-    }
-  }
-  &.small-header {
-    height:200px;
-    .header-small-content {
-      top: 40px;
-      text-align: center;
-      margin-top: 40px;
-      left: 0;
-      h2 {
-        margin-top: 15px;
-        color: #fff;
-      }
-      h3 {
-        margin-top: 20px;
-        font-size: 28px;
-        font-style: normal;
-        font-weight: 300;
-        color: #fff;
-      }
-      img {
-        width: 300px;
-      }
-    }
-  }
 }

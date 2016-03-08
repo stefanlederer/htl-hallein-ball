@@ -1,222 +1,246 @@
 #content {
-    width: 100%;
-    background: #fff;
+  width: 100%;
+  background: #fff;
+  position: absolute;
+  padding-bottom: 50px;
+  top: 200px;
+  left: 0;
+  margin-left: 0;
+  article {
+    width: 60%;
+    margin-left: 20%;
+    h2 {
+      margin-top: 0;
+      text-align: center;
+      border-bottom: 1px solid @grey;
+      font-weight: 100;
+      @media @mobile {
+        font-size: 34px;
+      }
+    }
+    &.sponsoring {
+      img {
+        float: left;
+        width: 140px;
+      }
+    }
+    &:first-child {
+      margin-top: 40px;
+    }
+  }
+
+  .confetti {
+    width: 15%;
     position: absolute;
-    padding-bottom: 50px;
-    top: 200px;
-    left: 0;
-    margin-left: 0;
-    article {
-	width: 60%;
-	margin-left: 20%;
-	h2 {
-	    margin-top: 0;
-	    text-align: center;
-	    border-bottom: 1px solid @grey;
-	    font-weight: 100;
-	    @media @mobile {
-		font-size: 34px;
-	    }
-	}
-	&.sponsoring {
-	    img {
-		float: left;
-		width: 140px;
-	    }
-	}
-	&:first-child {
-	    margin-top: 40px;
-	}
+    top: 0;
+    background: url('../img/confetti.png');
+    &.confetti-left {
+      left: 0;
     }
-
-    .confetti {
-	width: 15%;
-	position: absolute;
-	top: 0;
-	background: url('../img/confetti.png');
-	&.confetti-left {
-	    left: 0;
-	}
-	&.confetti-right {
-	    right: 0;
-	}
+    &.confetti-right {
+      right: 0;
     }
-    .program {
-	//z-index: 500;
-	width: 60%;
-	margin-left: 20%;
-	.time {
-	    width: 180px;
-	    .program-content {
-		text-align: center;
-		font-family: "Lato", sans-serif;
-		font-weight: bold;
-		font-size: 20px;
-	    }
-	}
+  }
+  .program {
+    //z-index: 500;
+    width: 60%;
+    margin-left: 20%;
+    border-bottom: 1px solid @grey;
+    height: 80px;
+    .time {
+      float:left;
+      width: 140px;
+      heigth: 100%;
+      @media @mobile {
+        width: 100%;
+        float: none;
+      }
+      .program-content {
+        //text-align: center;
+        float: left;
+        font-weight: bold;
+        font-size: 20px;
+        @media @mobile {
+          width: 100%;
+          float: none;
+        }
+      }
+    }
+    .subject {
+      height: 100%;
 
     }
-    tr {
-	height: 100px;
+    @media @mobile {
+      height: 100%;
     }
-    .contact {
-	text-align: left;
-	width: 60%;
-	margin-left: 20%;
-	font-family: "Lato", sans-serif;
-	p {
-	    margin: 5px 0;
-	}
+    @media @tablet {
+      width: 60%;
+      margin-left: 20%;
+      border-bottom: 1px solid @grey;
+      height: 80px;
     }
-    .google-maps {
-	text-align: center;
-	width: 60%;
-	margin-left: 20%;
-	position: relative;
-	@media @mobile {
-	    width: 100%;
-	    margin-left: 0;
-	}
-	.map-loader {
-	    width: 100%;
-	    height: 400px;
-	    display: none;
-	    position: absolute;
-	    z-index: 5000;
-	    opacity: 0;
-	    background: rgba(255, 255, 255, 0.6);
-	    left: 0;
-	    top: 100px;
-	    moz-transition: all 0.5s ease 0s;
-	    -webkit-transition: all 0.5s ease 0s;
-	    -ms-transition: all 0.5s ease 0s;
-	    transition: all 0.5s ease 0s;
-	    @media @mobile {
-		height: 250px;
-		top: 200px;
-	    }
-	    .sk-folding-cube {
-		margin-top: 160px;
-		@media @mobile {
-		    margin-top: 90px;
-		}
-		.sk-cube {
-		    &:before {
-			background: @orange;
-		    }
-		}
-	    }
-	}
-	.icon-wrapper {
-	    width: 100%;
+  }
+  tr {
+    height: 100px;
+  }
+  .contact {
+    text-align: left;
+    width: 60%;
+    margin-left: 20%;
+    font-family: "Lato", sans-serif;
+    p {
+      margin: 5px 0;
+    }
+  }
+  .google-maps {
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+    position: relative;
+    @media @mobile {
+      width: 100%;
+      margin-left: 0;
+    }
+    .map-loader {
+      width: 100%;
+      height: 400px;
+      display: none;
+      position: absolute;
+      z-index: 5000;
+      opacity: 0;
+      background: rgba(255, 255, 255, 0.6);
+      left: 0;
+      top: 100px;
+      moz-transition: all 0.5s ease 0s;
+      -webkit-transition: all 0.5s ease 0s;
+      -ms-transition: all 0.5s ease 0s;
+      transition: all 0.5s ease 0s;
+      @media @mobile {
+        height: 250px;
+        top: 200px;
+      }
+      .sk-folding-cube {
+        margin-top: 160px;
+        @media @mobile {
+          margin-top: 90px;
+        }
+        .sk-cube {
+          &:before {
+            background: @orange;
+          }
+        }
+      }
+    }
+    .icon-wrapper {
+      width: 100%;
 
-	    .icons {
-		&.active {
-		    background: @orange;
-		    color: #fff;
-		    &:hover {
-			i, p {
-			    color: #fff !important;
-			}
-		    }
-		}
-		&:hover {
-		    i, p {
-			color: @orange;
-		    }
-		}
-		float: left;
-		width: 50%;
-		height: 100px;
-		border: 1px solid @grey;
-		border-top: none;
-		box-sizing: border-box;
-		cursor: pointer;
-		padding-top: 16px;
-		@media @mobile {
-		    width: 100%;
-		}
-		i, p {
-		    moz-transition: all 0.2s ease 0s;
-		    -webkit-transition: all 0.2s ease 0s;
-		    -ms-transition: all 0.2s ease 0s;
-		    transition: all 0.2s ease 0s;
-		}
-	    }
-	}
-	.advanced-route {
-	    &.active {
-		background: @orange;
-		color: #fff;
-		&:hover {
-		    i, p {
-			color: #fff !important;
-		    }
-		}
-	    }
-	    &:hover {
-		i, p {
-		    color: @orange;
-		}
-	    }
-	    float: left;
-	    width: 100%;
-	    height: 100px;
-	    border: 1px solid @grey;
-	    box-sizing: border-box;
-	    cursor: pointer;
-	    padding-top: 16px;
-	    i, p {
-		moz-transition: all 0.2s ease 0s;
-		-webkit-transition: all 0.2s ease 0s;
-		-ms-transition: all 0.2s ease 0s;
-		transition: all 0.2s ease 0s;
-	    }
-	}
-	.instructions {
-	    padding: 0;
-	    li {
-		moz-transition: all 0.5s ease 0s;
-		-webkit-transition: all 0.5s ease 0s;
-		-ms-transition: all 0.5s ease 0s;
-		transition: all 0.5s ease 0s;
-		list-style: none;
-	    }
-	}
+      .icons {
+        &.active {
+          background: @orange;
+          color: #fff;
+          &:hover {
+            i, p {
+              color: #fff !important;
+            }
+          }
+        }
+        &:hover {
+          i, p {
+            color: @orange;
+          }
+        }
+        float: left;
+        width: 50%;
+        height: 100px;
+        border: 1px solid @grey;
+        border-top: none;
+        box-sizing: border-box;
+        cursor: pointer;
+        padding-top: 16px;
+        @media @mobile {
+          width: 100%;
+        }
+        i, p {
+          moz-transition: all 0.2s ease 0s;
+          -webkit-transition: all 0.2s ease 0s;
+          -ms-transition: all 0.2s ease 0s;
+          transition: all 0.2s ease 0s;
+        }
+      }
     }
-    .maps {
-	width: 100%;
-	height: 400px;
-	@media @mobile {
-	    height: 250px;
-	}
+    .advanced-route {
+      &.active {
+        background: @orange;
+        color: #fff;
+        &:hover {
+          i, p {
+            color: #fff !important;
+          }
+        }
+      }
+      &:hover {
+        i, p {
+          color: @orange;
+        }
+      }
+      float: left;
+      width: 100%;
+      height: 100px;
+      border: 1px solid @grey;
+      box-sizing: border-box;
+      cursor: pointer;
+      padding-top: 16px;
+      i, p {
+        moz-transition: all 0.2s ease 0s;
+        -webkit-transition: all 0.2s ease 0s;
+        -ms-transition: all 0.2s ease 0s;
+        transition: all 0.2s ease 0s;
+      }
     }
-    .developer {
-	width: 60%;
-	margin-left: 20%;
-	.developer-link {
-	    a {
-		color: @orange;
-		font-size: 26px;
-		&.fa-facebook:hover {
-		    color: @facebook;
-		}
-		&.fa-twitter:hover {
-		    color: @twitter;
-		}
-		&.fa-globe:hover {
-		    color: @darkblue;
-		}
-	    }
+    .instructions {
+      padding: 0;
+      li {
+        moz-transition: all 0.5s ease 0s;
+        -webkit-transition: all 0.5s ease 0s;
+        -ms-transition: all 0.5s ease 0s;
+        transition: all 0.5s ease 0s;
+        list-style: none;
+      }
+    }
+  }
+  .maps {
+    width: 100%;
+    height: 400px;
+    @media @mobile {
+      height: 250px;
+    }
+  }
+  .developer {
+    width: 60%;
+    margin-left: 20%;
+    .developer-link {
+      a {
+        color: @orange;
+        font-size: 26px;
+        &.fa-facebook:hover {
+          color: @facebook;
+        }
+        &.fa-twitter:hover {
+          color: @twitter;
+        }
+        &.fa-globe:hover {
+          color: @darkblue;
+        }
+      }
 
-	}
     }
+  }
 }
 
 .travel {
-    .confetti {
-	@media @mobile {
-	    display: none !important;
-	}
+  .confetti {
+    @media @mobile {
+      display: none !important;
     }
+  }
 }

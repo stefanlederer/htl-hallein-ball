@@ -60,8 +60,14 @@ App.map.prototype = {
             }
         });
         $(me.options.calcAdvancedRouteButton).click(function () {
-            if(me.options.calcAdvancedRoute) {
+            if (me.options.calcAdvancedRoute) {
                 me.drawAdvancedRoute();
+                window.setTimeout(function () {
+                    $('.confetti').height($('#content').height() + 50);
+                    if ($('.confetti').height() < ($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height()))) {
+                        $('.confetti').height(($(window).height() - ($('#header').height() + $('#nav').height() + $('#footer').height())));
+                    }
+                }, 200);
             }
         });
     },
@@ -136,7 +142,7 @@ App.map.prototype = {
     setMarker: function () {
         var me = this;
         //for user position
-        if(this.addedMark === false) {
+        if (this.addedMark === false) {
             this.map.addMarker({
                 lat: me.position.latitude,
                 lng: me.position.longitude,
